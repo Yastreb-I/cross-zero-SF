@@ -3,7 +3,7 @@
 def show_field(f):
     num ='  0 1 2'
     print(num)
-    #zip
+    #zip sdfghjk
     for row,i in zip(f,num.split()):
         print (f"{i} {' '.join(str(j) for j in row)}")
 
