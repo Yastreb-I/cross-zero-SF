@@ -80,7 +80,7 @@ def show_field(f):
     # print()
 
 
-# Проверка введеных координат от игроков
+# Проверка введенных координат от игроков
 def entering_coordinates(f, user):
     while True:
         coordinates = input(
@@ -110,19 +110,19 @@ def entering_coordinates(f, user):
 
 def win_combo(f, user):
     wincombo = user * max_sequence
-    #  Поиск выйгрышной комбинации по строке (горизонтали)
+    #  Поиск выигрышной комбинации по строке (горизонтали)
     for r in range(0, len(f)):
         combo_row = "".join(f[r])
         if combo_row.find(wincombo) != -1:
             return True
-        #  Поиск выйгрышной комбинации по столбцу (вертикали)
+        #  Поиск выигрышной комбинации по столбцу (вертикали)
         combo_col = ""
         for c in range(0, len(f[r])):
             combo_col = combo_col + f[c][r]
             if combo_col.find(wincombo) != -1:
                 return True
 
-    #  Поиск выйгрышной комбинации по диагонали сверху вниз
+    #  Поиск выигрышной комбинации по диагонали сверху вниз
     combo_diag_r = ""
     combo_diag_l = ""
     for row in range(-1 * field_size + len(wincombo), field_size + 1 - len(wincombo), 1):
@@ -137,8 +137,8 @@ def win_combo(f, user):
                 combo_diag_l = combo_diag_l + f[xl][yl]
         if combo_diag_l.find(wincombo) != -1:
             return True
-    #  Поиск выйгрышной комбинации по диагонали снизу в верх
-    for ro in range(2 * field_size + 1 - len(wincombo), len(wincombo) - 2, -1):
+    #  Поиск выигрышной комбинации по диагонали снизу в верх
+    for ro in range(2 * field_size - len(wincombo), field_size - len(wincombo), -1):
 
         position_r = [rdr for rdr in range(ro, ro - field_size, -1)]
 
